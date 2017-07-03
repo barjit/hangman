@@ -1,13 +1,11 @@
+require_relative 'dictionary'
+
 class Computer
 
-  def random_word
-    dictionary = File.readlines("5desk.txt")
-    dictionary.select {|word| word if word.length > 5 && word.length < 12}.sample
+  attr_reader :secret_word
+
+  def generate_secret_word(words)
+    @secret_word = words.select {|word| word if word.length > 5 && word.length < 12}.sample
   end
 
 end
-
-
-comp = Computer.new
-
-puts comp.random_word

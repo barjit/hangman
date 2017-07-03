@@ -1,7 +1,9 @@
 class Dictionary
+
+  attr_reader :words
   
   def initialize
-    dictionary = File.readlines("5desk.txt")
+    @words = File.readlines("5desk.txt")
   end
   
 end
