@@ -11,7 +11,7 @@ class Player
     @current_guess    
   end
 
-  def is_valid?(input)
+  def is_valid?(input)                                      #fix this up
     if input.class == String && input.length == 1
       true
     else
