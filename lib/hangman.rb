@@ -5,39 +5,38 @@ require_relative "black_board"
 
 
   computer = Computer.new
-  dictionary = Dictionary.new
+  dictionary = Dictionary.new("5desk.txt")
   player = Player.new
+
+  # dictionary.word_from_dictionary(dictionary.words, 12)
+  # puts "-------------------------------------------------"
+  # puts "word: "
+  # puts dictionary.word
+  # puts "chosen word length: "
+  # puts dictionary.word.length
+  # puts "-------------------------------------------------"
+
 
   computer.generate_secret_word(dictionary.words)
 
   black_board = BlackBoard.new(computer.secret_word)
 
+  puts "Computer secret_word.length = #{computer.secret_word.length}"
 
-  black_board.display_(black_board.black_board)
+@turn = 10
 
-  player_guess = player.get_input
+until @turn == 0
 
-  black_board.check_player_guess(computer.secret_word, player_guess, black_board.black_board)
+  black_board.show(black_board.black_board)
 
-  black_board.display_(black_board.black_board)
-
-  player_guess = player.get_input
-
-  black_board.check_player_guess(computer.secret_word, player_guess, black_board.black_board)
-
-  black_board.display_(black_board.black_board)
+  puts "guesses left: #{@turn}"
 
   player_guess = player.get_input
 
   black_board.check_player_guess(computer.secret_word, player_guess, black_board.black_board)
 
-  black_board.display_(black_board.black_board)
-
-  player_guess = player.get_input
-
-  black_board.check_player_guess(computer.secret_word, player_guess, black_board.black_board)
-
-  black_board.display_(black_board.black_board)
+  @turn -= 1
+end
 
   puts "Answer:"
   puts computer.secret_word

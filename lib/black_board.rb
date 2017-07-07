@@ -8,7 +8,7 @@ class BlackBoard
     @black_board = Array.new(secret_word.length) {"_"}
   end
 
-  def display_(black_board)
+  def show(black_board)
     black_board.each do |letter|
       print letter + " "
     end
