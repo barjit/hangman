@@ -1,18 +1,19 @@
 
 class Player
-  attr_accessor :current_guess
+  attr_accessor :player_guess
 
   def get_input
-    @current_guess = ""
-    until is_valid?(@current_guess)
+    @player_guess = ""
+    until valid?(@player_guess)
       puts "Please type a single letter: "
-      @current_guess = gets.downcase.chomp
+      @player_guess = gets.downcase.chomp
     end
-    @current_guess    
+    @player_guess    
   end
 
-  def is_valid?(input)                                      #fix this up
-    if input.class == String && input.length == 1
+  def valid?(guess)
+    alphabet = %w{ a b c d e f g h i j k l m n o p q r s t u v w x y z }
+    if alphabet.include? guess and guess.length == 1
       true
     else
       false
@@ -20,3 +21,6 @@ class Player
   end
 
 end
+
+
+

@@ -12,7 +12,7 @@ class BlackBoard
     black_board.each do |letter|
       print letter + " "
     end
-    puts
+    print "\n"
   end
 
   def check_player_guess(secret_word, player_guess, black_board)                    
