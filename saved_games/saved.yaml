@@ -1,0 +1,9 @@
+--- !ruby/object:GameState
+secret_word: pimpled
+guess_history:
+- f
+- a
+- e
+- i
+- p
+turns: 8

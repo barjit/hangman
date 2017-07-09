@@ -1,14 +1,31 @@
 
 class Player
   attr_accessor :player_guess
+  attr_accessor :history
+
+  def initialize
+    @history = Array.new
+  end
 
   def get_input
     @player_guess = ""
     until valid?(@player_guess)
-      puts "Please type a single letter: "
+      puts "Please type a single letter or type 'quit' to exit "
       @player_guess = gets.downcase.chomp
+
+      if @player_guess == "quit"
+        exit
+      end
     end
+    unless @history.include? @player_guess
+      store_history
+    end
+
     @player_guess    
+  end
+
+  def store_history
+    @history << @player_guess
   end
 
   def valid?(guess)

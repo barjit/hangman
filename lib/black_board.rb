@@ -9,11 +9,14 @@ class BlackBoard
     @black_board = Array.new(secret_word.length) {"_"}
   end
 
-  def show(black_board)
+  def show(black_board, player)
+    puts "--------------------------------------------------------------------------------------------------------"
     black_board.each do |letter|
       print letter + " "
     end
+    print "\t\t Guess History: #{player.history}"
     print "\n"
+    puts "--------------------------------------------------------------------------------------------------------"
   end
 
   def check_player_guess(secret_word, player_guess, black_board)                    
@@ -22,6 +25,7 @@ class BlackBoard
     words.each_with_index do |letter, index|
       if letter == player_guess
         black_board[index] = player_guess
+
         @correct_guess = true
       end
     end
