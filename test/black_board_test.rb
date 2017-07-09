@@ -16,8 +16,7 @@ class BlackBoardTest < Minitest::Test
   end
 
   def test_winning_conditions_true_if_met
-    assert(true, @black_board.winning_conditions(@black_board.black_board, @computer.secret_word))
+    assert(true, @black_board.winning_conditions?(@black_board.black_board, @computer.secret_word))
   end
-
 
 end

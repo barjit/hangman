@@ -23,6 +23,11 @@ require_relative "black_board"
 
   puts "Computer secret_word.length = #{computer.secret_word.length}"
 
+  # puts "black_board class:"
+  # puts black_board.black_board.class
+  # puts "secret_word class"
+  # puts computer.secret_word.class 
+
 @turn = 10
 
 until @turn == 0
@@ -35,12 +40,19 @@ until @turn == 0
 
   black_board.check_player_guess(computer.secret_word, player_guess, black_board.black_board)
 
-  @turn -= 1
+  if black_board.winning_conditions?(black_board.black_board, computer.secret_word)
+    puts
+    puts "Congratulations, you're right - the correct answer is: #{computer.secret_word}"
+    puts "But you knew that all along I'm sure ;)"
+    puts
+    break
+  end
+
+  unless black_board.correct_guess
+    @turn -= 1
+  end
 end
 
   puts "Answer:"
   puts computer.secret_word
 
-
-
-  #computer.secret_word holds the random word
