@@ -4,7 +4,7 @@ require_relative "../lib/computer"
 class ComputerTest < Minitest::Test
   def setup
     @computer = Computer.new
-    @dictionary = Dictionary.new
+    @dictionary = Dictionary.new("5desk.txt")
   end
 
   def test_that_secret_word_is_generated
