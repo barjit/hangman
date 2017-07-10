@@ -9,12 +9,12 @@ class BlackBoard
     @black_board = Array.new(secret_word.length) {"_"}
   end
 
-  def show(black_board, player)
+  def show(black_board, history)
     puts "--------------------------------------------------------------------------------------------------------"
     black_board.each do |letter|
       print letter + " "
     end
-    print "\t\t Guess History: #{player.history}"
+    print "\t\t Guess History: #{history}"
     print "\n"
     puts "--------------------------------------------------------------------------------------------------------"
   end

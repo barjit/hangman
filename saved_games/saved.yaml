@@ -1,9 +1,28 @@
 --- !ruby/object:GameState
-secret_word: pimpled
+secret_word: proscenia
 guess_history:
-- f
-- a
 - e
-- i
+- a
+- b
+- d
 - p
-turns: 8
+- r
+- i
+- o
+- s
+- t
+- q
+- n
+black_board: !ruby/object:BlackBoard
+  black_board:
+  - p
+  - r
+  - o
+  - s
+  - _
+  - e
+  - n
+  - i
+  - a
+  correct_guess: true
+turns: 6

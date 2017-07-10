@@ -1,7 +1,8 @@
 class GameState
-  def initialize(secret_word, history, turns)
+  def initialize(secret_word, history, black_board, turns)
     @secret_word = secret_word
     @guess_history = history
+    @black_board = black_board
     @turns = turns
   end
 
@@ -15,6 +16,10 @@ class GameState
 
   def turns
     @turns
+  end
+
+  def black_board
+    @black_board
   end
 
   def save
