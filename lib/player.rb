@@ -7,15 +7,21 @@ class Player
     @history = Array.new
   end
 
-  def get_input
+  def get_input(game_state)
     @player_guess = ""
     until valid?(@player_guess)
-      puts "Please type a single letter or type 'quit' to exit "
+      puts "You can 'save', or 'quit' - otherwise type a letter to keep playing!"
       @player_guess = gets.downcase.chomp
 
-      if @player_guess == "quit"
-        exit
+      case @player_guess
+        when "quit"
+          exit
+        when "save"
+          game_state.save
+        else
+          @player_guess
       end
+
     end
     unless @history.include? @player_guess
       store_history

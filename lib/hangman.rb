@@ -32,14 +32,8 @@ class Game
       @black_board.show(@black_board.black_board, @guess_history)
 
       puts "Guesses Left: #{@turn}"
-      
-      puts "Would you like to save and exit?"
-      choice = gets.chomp
-      if choice == "y"
-        @game_state.save
-      end
 
-      player_guess = player.get_input
+      player_guess = player.get_input(@game_state)
 
       @black_board.check_player_guess(@secret_word, player_guess, @black_board.black_board)
 
