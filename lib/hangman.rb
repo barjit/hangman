@@ -14,6 +14,8 @@ class Game
   
   def self.start(computer, dictionary, player)
 
+    self.greeting
+
     puts "Would you like to re-load the saved game? y/n "
     response = gets.chomp
     if response == "y"
@@ -33,7 +35,7 @@ class Game
 
       puts "Guesses Left: #{@turn}"
 
-      player_guess = player.get_input(@game_state)
+      player_guess = player.get_input(@game_state, @guess_history)
 
       @black_board.check_player_guess(@secret_word, player_guess, @black_board.black_board)
 
@@ -67,6 +69,12 @@ class Game
     @guess_history = game_state.guess_history
     @black_board = game_state.black_board
     @turn = game_state.turns
+  end
+
+  def self.greeting
+    110.times {print "-"}
+    puts
+    puts "Welcome to Hangman!"
   end
 
 end

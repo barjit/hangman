@@ -7,31 +7,18 @@ class Player
     @history = Array.new
   end
 
-  def get_input(game_state)
+  def get_input(game_state, history)
     @player_guess = ""
+
     until valid?(@player_guess)
-      puts "You can 'save', or 'quit' - otherwise type a letter to keep playing!"
+      puts "You can 'save', or 'quit' - otherwise type a letter to play on!"
       @player_guess = gets.downcase.chomp
-
-      case @player_guess
-        when "quit"
-          exit
-        when "save"
-          game_state.save
-        else
-          @player_guess
-      end
-
-    end
-    unless @history.include? @player_guess
-      store_history
+      quit_save_or_play(@player_guess, game_state)
     end
 
-    @player_guess    
-  end
+    store_history(history, @player_guess)
 
-  def store_history
-    @history << @player_guess
+    @player_guess
   end
 
   def valid?(guess)
@@ -43,7 +30,21 @@ class Player
     end
   end
 
+  def store_history(history, player_guess)
+    unless history.include? player_guess
+      history << player_guess
+    end
+  end
+
+  def quit_save_or_play(player_guess, game_state)
+    case @player_guess
+    when "quit"
+      exit
+    when "save"
+      game_state.save
+    else
+      @player_guess
+    end
+  end
+
 end
-
-
-
