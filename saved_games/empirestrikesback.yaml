@@ -1,28 +1,26 @@
 --- !ruby/object:GameState
-secret_word: proscenia
+secret_word: nickelodeon
 guess_history:
-- e
 - a
-- b
-- d
-- p
-- r
+- e
 - i
 - o
-- s
-- t
-- q
+- u
+- p
 - n
+- t
 black_board: !ruby/object:BlackBoard
-  black_board:
-  - p
-  - r
-  - o
-  - s
-  - _
-  - e
+  state:
   - n
   - i
-  - a
-  correct_guess: true
+  - _
+  - _
+  - e
+  - _
+  - o
+  - _
+  - e
+  - o
+  - n
+  correct_guess: false
 turns: 6

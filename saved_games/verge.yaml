@@ -1,0 +1,34 @@
+--- !ruby/object:GameState
+secret_word: articulable
+guess_history:
+- a
+- e
+- i
+- o
+- u
+- p
+- y
+- t
+- d
+- s
+- g
+- v
+- q
+- r
+- c
+- l
+black_board: !ruby/object:BlackBoard
+  state:
+  - a
+  - r
+  - t
+  - i
+  - c
+  - u
+  - l
+  - a
+  - _
+  - l
+  - e
+  correct_guess: true
+turns: 2

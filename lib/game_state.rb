@@ -1,4 +1,7 @@
 class GameState
+
+  attr_reader :secret_word, :guess_history, :turns, :black_board
+
   def initialize(secret_word, history, black_board, turns)
     @secret_word = secret_word
     @guess_history = history
@@ -6,32 +9,20 @@ class GameState
     @turns = turns
   end
 
-  def secret_word
-    @secret_word
-  end
-
-  def guess_history
-    @guess_history
-  end
-
-  def turns
-    @turns
-  end
-
-  def black_board
-    @black_board
-  end
-
   def save
     Dir.mkdir("saved_games") unless Dir.exists? "saved_games"
 
-    filename = "saved_games/saved.yaml"
+    puts "what would you like to call this saved game? "
+    filename = "saved_games/#{gets.strip}.yaml"
 
     File.open(filename, 'w') do |file|
+      puts "saving #{filename} now......."
       file.puts self.to_yaml
+      puts "#{filename} has been saved!"
     end
 
-    exit
   end
+
+
 
 end

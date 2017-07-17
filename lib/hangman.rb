@@ -16,7 +16,7 @@ class Game
 
     self.greeting
 
-    puts "Would you like to re-load the saved game? y/n "
+    puts "Would you like to re-load a saved game? y/n "
     response = gets.chomp
     if response == "y"
       self.load
@@ -31,15 +31,15 @@ class Game
 
       @game_state = GameState.new(@secret_word, @guess_history, @black_board, @turn)
 
-      @black_board.show(@black_board.black_board, @guess_history)
+      @black_board.show(@black_board.state, @guess_history)
 
       puts "Guesses Left: #{@turn}"
 
       player_guess = player.get_input(@game_state, @guess_history)
 
-      @black_board.check_player_guess(@secret_word, player_guess, @black_board.black_board)
+      @black_board.check_player_guess(@secret_word, player_guess, @black_board.state)
 
-      if @black_board.winning_conditions?(@black_board.black_board, @secret_word)
+      if @black_board.winning_conditions?(@black_board.state, @secret_word)
         puts
         puts "Congratulations, you're right - the correct answer is: #{@secret_word}"
         puts "But you knew that all along I'm sure ;)"
@@ -62,7 +62,10 @@ class Game
   end
 
   def self.load
-    filename = "./saved_games/saved.yaml"
+    puts "which game would you like to load? (don't worry about typing the yaml extention)"
+    saved_games = Dir.glob("./saved_games/*.yaml")
+    saved_games.each { |game| puts game.sub("./saved_games/", "") }
+    filename = "./saved_games/#{gets.strip}.yaml"
     game_state = YAML::load(File.open(filename))
     
     @secret_word = game_state.secret_word
