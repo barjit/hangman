@@ -11,14 +11,14 @@ class BlackBoard
   end
 
   def show(black_board_state, history)
-    110.times {print "-"}
+    lots_of_dashes
     puts
     black_board_state.each do |character|
       print character + " "
     end
     print "\t\t Guess History: #{history}"
     puts
-    110.times {print "-"}
+    lots_of_dashes
     puts
   end
 
@@ -35,6 +35,10 @@ class BlackBoard
 
   def winning_conditions?(black_board_state, secret_word)
     black_board_state == secret_word.split("") ? true : false
+  end
+
+  def lots_of_dashes
+    120.times {print "-"}
   end
 
 end

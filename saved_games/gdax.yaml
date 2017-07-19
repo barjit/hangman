@@ -1,0 +1,28 @@
+--- !ruby/object:GameState
+secret_word: delphinium
+guess_history:
+- a
+- e
+- i
+- o
+- u
+- g
+- p
+- l
+- h
+- v
+- n
+black_board: !ruby/object:BlackBoard
+  state:
+  - _
+  - e
+  - l
+  - p
+  - h
+  - i
+  - n
+  - i
+  - u
+  - _
+  correct_guess: true
+turns: 6

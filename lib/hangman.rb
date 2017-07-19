@@ -28,20 +28,23 @@ class Game
     end
 
     until @turn == 0
-
       @game_state = GameState.new(@secret_word, @guess_history, @black_board, @turn)
-
       @black_board.show(@black_board.state, @guess_history)
-
       puts "Guesses Left: #{@turn}"
-
       player_guess = player.get_input(@game_state, @guess_history)
-
       @black_board.check_player_guess(@secret_word, player_guess, @black_board.state)
 
       if @black_board.winning_conditions?(@black_board.state, @secret_word)
         puts
-        puts "Congratulations, you're right - the correct answer is: #{@secret_word}"
+        puts "Congratulations, you're right - the correct answer is: "
+        puts
+        @black_board.lots_of_dashes
+        puts
+        puts
+        puts "\t\t\t\t\t\t\t#{@secret_word}"
+        puts
+        @black_board.lots_of_dashes
+        puts
         puts "But you knew that all along I'm sure ;)"
         puts
         break
@@ -59,6 +62,7 @@ class Game
       puts @secret_word
       puts
     end
+
   end
 
   def self.load
@@ -75,9 +79,11 @@ class Game
   end
 
   def self.greeting
-    110.times {print "-"}
     puts
-    puts "Welcome to Hangman!"
+    puts
+    puts "\t\t\t\t\t\t\tWelcome to Hangman!"
+    puts
+    puts
   end
 
 end
